@@ -8,6 +8,17 @@ import Swipeout from 'react-native-swipeout';
 import { firebaseConfig, googleApiKey } from './config';
 import { Speech } from 'expo';
 
+try {
+  const update = await Expo.Updates.checkForUpdateAsync();
+  if (update.isAvailable) {
+    await Expo.Updates.fetchUpdateAsync();
+    // ... notify user of update ...
+    Expo.Updates.reloadFromCache();
+  }
+} catch (e) {
+  // handle or log error
+}
+
 const Container = styled.View`
   flex: 1;
   backgroundColor: #10171e;
