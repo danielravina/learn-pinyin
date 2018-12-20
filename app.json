@@ -21,6 +21,7 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "co.pinyin-app.www",
       "supportsTablet": true
     }
   }
