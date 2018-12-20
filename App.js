@@ -6,15 +6,16 @@ import styled from 'styled-components';
 import Dialog from 'react-native-dialog';
 import Swipeout from 'react-native-swipeout';
 import { firebaseConfig, googleApiKey } from './config';
-import { Speech } from 'expo';
+import Expo, { Speech } from 'expo';
 
 try {
-  const update = await Expo.Updates.checkForUpdateAsync();
-  if (update.isAvailable) {
-    await Expo.Updates.fetchUpdateAsync();
-    // ... notify user of update ...
-    Expo.Updates.reloadFromCache();
-  }
+  Expo.Updates.checkForUpdateAsync().then((update) => {
+    if (!update.isAvailable) return;
+
+    Expo.Updates.fetchUpdateAsync().then(() => {
+      Expo.Updates.reloadFromCache();
+    });
+  });
 } catch (e) {
   // handle or log error
 }
