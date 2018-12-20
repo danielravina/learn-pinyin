@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import styled from 'styled-components';
 import Dialog from 'react-native-dialog';
 import Swipeout from 'react-native-swipeout';
+import { firebaseConfig, googleApiKey } from './config';
 
 const Container = styled.View`
   flex: 1;
@@ -58,17 +59,8 @@ export default class App extends React.Component {
     super();
     this.listItem = this.listItem.bind(this);
     this.listRef = null;
-    const config = {
-      apiKey: 'AIzaSyCjLXoyWVxY8uX77NY-FK3_AyvvgjLKROw',
-      authDomain: 'pinyin-f0eca.firebaseapp.com',
-      databaseURL: 'https://pinyin-f0eca.firebaseio.com',
-      projectId: 'pinyin-f0eca',
-      storageBucket: 'pinyin-f0eca.appspot.com',
-      messagingSenderId: '351863422992',
-    };
-
     if (!firebase.apps.length) {
-      firebase.initializeApp(config);
+      firebase.initializeApp(firebaseConfig);
     }
   }
 
@@ -94,10 +86,6 @@ export default class App extends React.Component {
   onRemove({ created }) {
     firebase.database().ref(`words/${created}`).remove();
   }
-
-  // onEdit(id) {
-
-  // }
 
   itemRightButtons(item) {
     return [
@@ -142,7 +130,7 @@ export default class App extends React.Component {
     const bodyFormData = new FormData();
     bodyFormData.append('q', this.state.textInput.trim());
     bodyFormData.append('target', 'zh');
-    bodyFormData.append('key', 'AIzaSyCH7-_TyanOH6G6UqiDHqHYT8g8mUMVr3s');
+    bodyFormData.append('key', googleApiKey);
     axios({
       method: 'post',
       url: 'https://translation.googleapis.com/language/translate/v2',
