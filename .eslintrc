@@ -1,0 +1,53 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "rules": {
+    "import/no-named-as-default": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "new-cap": "off",
+    "react/prefer-stateless-function": "off",
+    "max-len": ["error", 120],
+    "no-underscore-dangle": "off",
+    "no-param-reassign": "off",
+    "react/jsx-no-bind": "off",
+    "import/imports-first": "off",
+    "function-paren-newline": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
+    "import/first": "off",
+    "react/forbid-prop-types": "off",
+    "jsx-a11y/label-has-for": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-debugger": "off",
+    "camelcase": "off",
+    "react/sort-comp": "off",
+    "react/jsx-filename-extension": "off"
+  },
+  "globals": {
+    "__log": true,
+    "amplitude": true,
+    "describe": true,
+    "it": true,
+    "beforeEach": true,
+    "context": true,
+    "afterEach": true,
+    "before": true,
+    "VERSION": true,
+    "$": true,
+  }
+}
