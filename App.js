@@ -1,11 +1,12 @@
 import React from 'react';
-import { Linking, FlatList, StatusBar } from 'react-native';
+import { FlatList, StatusBar } from 'react-native';
 import axios from 'axios';
 import firebase from 'firebase';
 import styled from 'styled-components';
 import Dialog from 'react-native-dialog';
 import Swipeout from 'react-native-swipeout';
 import { firebaseConfig, googleApiKey } from './config';
+import { Speech } from 'expo';
 
 const Container = styled.View`
   flex: 1;
@@ -100,7 +101,7 @@ export default class App extends React.Component {
         text: '🔉',
         type: 'primary',
         onPress() {
-          Linking.openURL(encodeURI(`https://translate.google.ca/#view=home&op=translate&sl=en&tl=zh-CN&text=${item.en}`));
+
         },
       },
     ];
@@ -147,11 +148,14 @@ export default class App extends React.Component {
       <Swipeout
         style={{ marginBottom: 0, borderWidth: 1, borderColor: '#38444d' }}
         right={this.itemRightButtons(item)}
-        left={this.itemLeftButtons(item)}
+        // left={this.itemLeftButtons(item)}
         autoClose
         sensitivity={10}
       >
-        <ListItem activeOpacity={1}>
+        <ListItem
+          onLongPress={() => Speech.speak(item.zh, { language: 'zh' })}
+          activeOpacity={0.8}
+        >
           <English>{item.en}</English>
           <PinYin>{item.pinyin}</PinYin>
         </ListItem>
