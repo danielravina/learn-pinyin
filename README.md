@@ -1,6 +1,6 @@
-# Learn Pinyin
+# Learn Pinyin 2019
 
-My Goal for 2019 is to learn mandarin. I built this app to help me learn new words using Pinyin.
+My goal for 2019 is to learn to speak mandarin. I built this app to help me practice new words and phrases using [Pinyin](https://en.wikipedia.org/wiki/Pinyin).
 
 <img width="300" alt="portfolio_view" src="https://github.com/danielravina/learn-pinyin/raw/master/assets/screen-shot.png">
 
